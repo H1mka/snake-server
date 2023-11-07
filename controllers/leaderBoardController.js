@@ -5,9 +5,10 @@ class LeaderBoardController {
         try {
             const { player_name, player_score } = req.body;
 
-            const findLeader = await db.query('SELECT * FROM leader_board WHERE player_name = $1', [
+            const findLeader = await db.query('SELECT * FROM leaderboard WHERE player_name = $1', [
                 player_name,
             ]);
+
             // Якщо такого гравця ще не існує, додаю гравця
             if (!findLeader.rowCount) {
                 const newLeader = await db.query(
