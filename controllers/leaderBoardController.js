@@ -12,7 +12,7 @@ class LeaderBoardController {
             // Якщо такого гравця ще не існує, додаю гравця
             if (!findLeader.rowCount) {
                 const newLeader = await db.query(
-                    `INSERT INTO leader_board (player_name, player_score) values ($1, $2) RETURNING *`,
+                    `INSERT INTO leaderboard (player_name, player_score) values ($1, $2) RETURNING *`,
                     [player_name, player_score]
                 );
 
@@ -23,7 +23,7 @@ class LeaderBoardController {
             // Якщо вже існуючий гравець побив минулий рекорд
             if (player_score > findLeader.rows[0].player_score) {
                 const updatePlayerScore = await db.query(
-                    'UPDATE leader_board SET player_score = $1 WHERE player_name = $2 RETURNING *',
+                    'UPDATE leaderboard SET player_score = $1 WHERE player_name = $2 RETURNING *',
                     [player_score, player_name]
                 );
 
