@@ -5,9 +5,16 @@ class LeaderBoardController {
         try {
             const { player_name, player_score } = req.body;
 
+<<<<<<< HEAD
             const findLeader = await db.query('SELECT * FROM leader_board WHERE player_name = $1', [
                 player_name,
             ]);
+=======
+            const newLeader = await db.query(
+                `INSERT INTO leaderboard (player_name, player_score) values ($1, $2) RETURNING *`,
+                [player_name, player_score]
+            );
+>>>>>>> 73ead05aea61f0df43bcf10fadfbaba8ca28556a
 
             // Якщо такого гравця ще не існує, додаю гравця
             if (!findLeader.rowCount) {
