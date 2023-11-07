@@ -5,14 +5,14 @@ class LeaderBoardController {
         try {
             const { player_name, player_score } = req.body;
 
-            const findLeader = await db.query('SELECT * FROM leader_board WHERE player_name = $1', [
+            const findLeader = await db.query('SELECT * FROM leaderboard WHERE player_name = $1', [
                 player_name,
             ]);
 
             // Якщо такого гравця ще не існує, додаю гравця
             if (!findLeader.rowCount) {
                 const newLeader = await db.query(
-                    `INSERT INTO leader_board (player_name, player_score) values ($1, $2) RETURNING *`,
+                    `INSERT INTO leaderboard (player_name, player_score) values ($1, $2) RETURNING *`,
                     [player_name, player_score]
                 );
 
@@ -23,7 +23,7 @@ class LeaderBoardController {
             // Якщо вже існуючий гравець побив минулий рекорд
             if (player_score > findLeader.rows[0].player_score) {
                 const updatePlayerScore = await db.query(
-                    'UPDATE leader_board SET player_score = $1 WHERE player_name = $2 RETURNING *',
+                    'UPDATE leaderboard SET player_score = $1 WHERE player_name = $2 RETURNING *',
                     [player_score, player_name]
                 );
 
@@ -33,11 +33,15 @@ class LeaderBoardController {
 
             // Якщо новий рекорд нижче попереднього
             res.status(200).json('New record lower than previous record');
+        } catch (error) {
+            console.log(error);
+            res.status(500).json({ message: 'Internal server error' });
+        }
     }
 
     async getAllLeaders(req, res) {
         try {
-            const leaders = await db.query('SELECT * from leader_board');
+            const leaders = await db.query('SELECT * from leaderboard');
             const sortedLeaders = leaders.rows.sort((a, b) => b.player_score - a.player_score);
 
             res.status(200).json(sortedLeaders);
