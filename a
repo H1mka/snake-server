@@ -1,0 +1,35 @@
+[33mcommit 8ba658353a26dbbb1ac9de1e61c847a041ed6b2d[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/LeaderBoardFixBug[m[33m)[m
+Author: Adelev <kak-dela1488@ukr.net>
+Date:   Tue Nov 7 14:25:49 2023 +0200
+
+    fixBugWithLeaderBoard
+
+[33mcommit 98367182976ec72d473ea9aebe29c12ffaee9a45[m[33m ([m[1;31morigin/ChangeTableName[m[33m)[m
+Author: Adelev <kak-dela1488@ukr.net>
+Date:   Thu Nov 2 11:38:05 2023 +0200
+
+    changeTableName
+
+[33mcommit b49000bd43b04177135036aca19dc1aa1f7d4073[m[33m ([m[1;31morigin/main[m[33m)[m
+Author: Adelev <kak-dela1488@ukr.net>
+Date:   Thu Nov 2 11:17:06 2023 +0200
+
+    updatePort
+
+[33mcommit 47099ce9eb9918603d72a530a04d0cd0cab37b05[m
+Author: Adelev <kak-dela1488@ukr.net>
+Date:   Thu Nov 2 11:00:58 2023 +0200
+
+    gitignore
+
+[33mcommit f82e635cd1bf599f93bd2b0f251c080e891c5d1c[m
+Author: Adelev <kak-dela1488@ukr.net>
+Date:   Thu Nov 2 10:57:36 2023 +0200
+
+    variables
+
+[33mcommit dd4e76c7ab3c23fe165a78fb0e50303a4337a671[m
+Author: Adelev <kak-dela1488@ukr.net>
+Date:   Thu Nov 2 10:41:48 2023 +0200
+
+    first commit
